@@ -1,6 +1,7 @@
 #include "ethernet_handler.h"
 #include "driver/gpio.h"
 #include "esp_eth.h"
+#include "esp_eth_phy_lan87xx.h"
 #include "esp_event.h"
 #include "esp_log.h"
 #include "esp_netif.h"
@@ -83,7 +84,7 @@ void ethernet_init(const char *hostname) {
   esp32_emac_config.smi_gpio.mdio_num = 18;
   esp32_emac_config.interface = EMAC_DATA_INTERFACE_RMII;
   esp32_emac_config.clock_config.rmii.clock_mode = EMAC_CLK_EXT_IN;
-  esp32_emac_config.clock_config.rmii.clock_gpio = EMAC_CLK_IN_GPIO;
+  esp32_emac_config.clock_config.rmii.clock_gpio = 0; // ESP32 only supports GPIO0 for external RMII clock input
 
   esp_eth_mac_t *mac = esp_eth_mac_new_esp32(&esp32_emac_config, &mac_config);
   esp_eth_phy_t *phy = esp_eth_phy_new_lan87xx(&phy_config);
