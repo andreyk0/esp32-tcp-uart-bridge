@@ -1,5 +1,7 @@
 # TCP UART Bridge
 
+ESP-IDF: v5.5.4 (env snapshot 2026-08-23)
+
 * [wt32-eth01 board info](https://github.com/egnor/wt32-eth01)
 * ESP IDF `v5.4.2`
 
